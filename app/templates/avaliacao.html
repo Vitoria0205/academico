@@ -76,66 +76,43 @@ navigation">
             </ul>
         </div>
     </nav>
-    <div class="container mt-5">
-        <div class="jumbotron text-center">
-            <h1 class="display-4">Olá, é bom te ver por aqui</h1>
-            <p class="lead">Esta é a página inicial do Acadêmico</p>
-            <p class="lead">Seja Bem Vindo(A)</p>
-        </div>
-
-        <h2 class="mb-4">Tabela de dados sobre a pessoa</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Pai</th>
-                    <th scope="col">Mãe</th>
-                    <th scope="col">CPF</th>
-                    <th scope="col">Data de nascimento</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Cidade</th>
-                    <th scope="col">Ocupação</th>
-                    <th scope="col">Excluir</th>
+<div class="container mt-5">
+<h2 class="mb-4">Tabela de Avaliacções</h2>
+<table class="table">
+<thead>
+<tr>
+<th scope="col">Descrição</th>
+<th scope="col">Curso</th>
+<th scope="col">Disciplina</th>
+<th scope="col">Avaliação tipo</th>
 
 
 
-                </tr>
-            </thead>
-            <tbody>
-                {% for pessoa in pessoa %}
-                <tr>
-                    <td>{{ pessoa.nome }}</td>
-                    <td>{{ pessoa.pai }}</td>
-                    <td>{{ pessoa.mae}}</td>
-                    <td>{{ pessoa.cpf }} </td>
-                    <td>{{ pessoa.data_nasc }}</td>
-                    <td>{{ pessoa.email }}</td>
-                    <td>
-                    <td>
-                        {% for cidade in pessoa.cidade.all %}
-                        {{ cidade.nome }}
-                        {% if not forloop.last %},
-                        {% endif %}
-                        {% endfor %}
-                    </td>
-
-                    <td>
-                    <td>
-                        {% for ocupacao in pessoa.ocupacao.all %}
-                        {{ ocupacao.nome }}{% if not forloop.last %},
-                        {% endif %}
-                        {% endfor %}</td>
-                    <td><a href="delete/{{ Pessoa.id }}" class="btn btn-danger">Excluir</a></td>
-                    <th scope="col">Editar</th>
-                    <td><a href="editar/{{ Pessoa.id }}" class="btn btn-warning">Editar</a></td>
 
 
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    </div>
+
+
+
+</tr>
+</thead>
+<tbody>
+{% for avaliacao in avaliacao %}
+<tr>
+<td>{{ avaliacao.descricao }}</td>
+<td>{{ avaliacao.curso }}</td>
+<td>{{ avaliacao.disciplina }}</td>
+<td>{{ avaliacao.avaliacaotipo }}</td>
+
+
+
+
+
+
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
     <!-- Incluindo jQuery e Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popp
