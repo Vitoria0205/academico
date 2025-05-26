@@ -84,26 +84,26 @@ class CursosDisciplinasView(View):
         cursosdisciplinas = CursoDisciplina.objects.all()
         return render(request, 'cursodisciplina.html', {'cursosdisciplinas': cursosdisciplinas})
 
-class DeletePessoaView(View):
-    def get(self, request, id, *args, **kwargs):
-        pessoa= Pessoa.objects.get(id=id)
-        pessoa.delete()
-        messages.success(request, 'Excluído com sucesso!') # Success message
-        return redirect('pessoas')
+# class DeletePessoaView(View):
+#     def get(self, request, id, *args, **kwargs):
+#         pessoa= Pessoa.objects.get(id=id)
+#         pessoa.delete()
+#         messages.success(request, 'Excluído com sucesso!') # Success message
+#         return redirect('pessoas')
     
-class EditarPessoaView(View):
-    template_name = 'editar_pessoa.html'
-    def get(self, request, id, *args, **kwargs):
-        pessoa = get_object_or_404(Pessoa, id=id)
-        form = PessoaForm(instance=pessoa)
-        return render(request, self.template_name, {'pessoa': pessoa,'form': form})
-    def post(self, request, id, *args, **kwargs):
-        pessoa = get_object_or_404(Pessoa, id=id)
-        form = PessoaForm(request.POST, instance=pessoa)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'As edições foram salvas com sucesso.')
-            return redirect('editar', id=id) # Redirecionar de volta para a página de edição
-        else:
-            messages.error(request, 'Corrija os erros no formulário antes de enviar novamente.')
-        return render(request, self.template_name, {'pessoa': pessoa,'form': form})
+# class EditarPessoaView(View):
+#     template_name = 'editar_pessoa.html'
+#     def get(self, request, id, *args, **kwargs):
+#         pessoa = get_object_or_404(Pessoa, id=id)
+#         form = PessoaForm(instance=pessoa)
+#         return render(request, self.template_name, {'pessoa': pessoa,'form': form})
+#     def post(self, request, id, *args, **kwargs):
+#         pessoa = get_object_or_404(Pessoa, id=id)
+#         form = PessoaForm(request.POST, instance=pessoa)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'As edições foram salvas com sucesso.')
+#             return redirect('editar', id=id) # Redirecionar de volta para a página de edição
+#         else:
+#             messages.error(request, 'Corrija os erros no formulário antes de enviar novamente.')
+#         return render(request, self.template_name, {'pessoa': pessoa,'form': form})

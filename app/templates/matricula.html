@@ -97,17 +97,13 @@ navigation">
 </tr>
 </thead>
 <tbody>
-{% for matricula in matricula %}
+{% for matricula in matriculas %}
 <tr>
 <td>{{ matricula.instituicaoensino }}</td>
 <td>{{ matricula.curso }}</td>
+<td>{{ matricula.pessoa }}</td>
 <td>{{ matricula.data_inicio }}</td>
-<td>{{ matricula.data_previsao_termino }}</td>
-
-
-
-
-
+<td>{{ matricula.data_previsao_termino}}</td>
 
 </tr>
 {% endfor %}

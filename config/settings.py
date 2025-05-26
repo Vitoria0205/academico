@@ -84,11 +84,6 @@ DATABASES = {
         'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': '5432',
-
-
-
-
-
     }
 }
 
@@ -117,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'America/Sao Paulo'
+TIME_ZONE = 'America/Sao_Paulo'  # Corrigido aqui
 
 USE_I18N = True
 
@@ -127,13 +122,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(STATIC_URL, "static")
+STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # caminho absoluto para coleta de arquivos estáticos
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "app/static/"),
 ]
-
-
 
 
 # Default primary key field type

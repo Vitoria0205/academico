@@ -1,81 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,
-initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Página Inicial</title>
-    <!-- Incluindo Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.
-min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-        <a class="navbar-brand" href="/">Academico</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Acadêmico</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle
-navigation">
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/Pessoa/">Pessoa</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/Ocupacao/">Ocupação</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/cidade/">Cidade</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/InstituicaoEnsino/">Instituição de Ensino</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/AreaSaber/">Área Saber</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/Curso/">Curso</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/Turma/">Turma</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/Disciplina/">Disciplina</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/Matricula/">Matricula</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/Avaliacao/">Avaliacao</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/Frequencia/">Frequencia</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/Turnos/">Turnos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/Ocorrencia/">Ocorrencia</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/CursoDisciplina/">Curso Disciplina</a>
-
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/AvaliacaoTipo/">Avaliacao Tipo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/admin/">Administração</a>
-                </li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'index' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'pessoa' %}">Pessoa</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'Ocupacao' %}">Ocupação</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'cidade' %}">Cidade</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'InstituicaoEnsino' %}">Instituição de Ensino</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'AreaSaber' %}">Área Saber</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'Curso' %}">Curso</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'Turma' %}">Turma</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'Disciplina' %}">Disciplina</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'Matricula' %}">Matrícula</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'Avaliacao' %}">Avaliação</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'Frequencia' %}">Frequência</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'Turnos' %}">Turnos</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'Ocorrencia' %}">Ocorrência</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'CursoDisciplina' %}">Curso Disciplina</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'AvaliacaoTipo' %}">Avaliação Tipo</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="/admin/">Administração</a></li>
             </ul>
         </div>
     </nav>
+
     <div class="container mt-5">
         <div class="jumbotron text-center">
             <h1 class="display-4">Olá, é bom te ver por aqui</h1>
@@ -84,7 +44,7 @@ navigation">
         </div>
 
         <h2 class="mb-4">Tabela de dados sobre a pessoa</h2>
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
@@ -96,52 +56,49 @@ navigation">
                     <th scope="col">Cidade</th>
                     <th scope="col">Ocupação</th>
                     <th scope="col">Excluir</th>
-
-
-
                 </tr>
             </thead>
             <tbody>
-                {% for pessoa in pessoa %}
+                {% for pessoa in pessoas %}
                 <tr>
                     <td>{{ pessoa.nome }}</td>
                     <td>{{ pessoa.pai }}</td>
-                    <td>{{ pessoa.mae}}</td>
-                    <td>{{ pessoa.cpf }} </td>
+                    <td>{{ pessoa.mae }}</td>
+                    <td>{{ pessoa.cpf }}</td>
                     <td>{{ pessoa.data_nasc }}</td>
                     <td>{{ pessoa.email }}</td>
                     <td>
-                    <td>
                         {% for cidade in pessoa.cidade.all %}
-                        {{ cidade.nome }}
-                        {% if not forloop.last %},
-                        {% endif %}
+                            {{ cidade.nome }}{% if not forloop.last %}, {% endif %}
+                        {% empty %}
+                            -
                         {% endfor %}
                     </td>
-
-                    <td>
                     <td>
                         {% for ocupacao in pessoa.ocupacao.all %}
-                        {{ ocupacao.nome }}{% if not forloop.last %},
-                        {% endif %}
-                        {% endfor %}</td>
-                    <td><a href="delete/{{ Pessoa.id }}" class="btn btn-danger">Excluir</a></td>
-                    <th scope="col">Editar</th>
-                    <td><a href="editar/{{ Pessoa.id }}" class="btn btn-warning">Editar</a></td>
-
-
+                            {{ ocupacao.nome }}{% if not forloop.last %}, {% endif %}
+                        {% empty %}
+                            -
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <form action="{% url 'delete_pessoa' pessoa.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="9" class="text-center">Nenhuma pessoa encontrada.</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-    </div>
-    <!-- Incluindo jQuery e Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popp
-er.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.mi
-n.js"></script>
-</body>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

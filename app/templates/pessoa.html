@@ -76,41 +76,42 @@ navigation">
             </ul>
         </div>
     </nav>
-<div class="container mt-5">
-<h2 class="mb-4">Tabela de dados sobre a pessoa</h2>
-<table class="table">
-<thead>
-<tr>
-<th scope="col">Nome</th>
-<th scope="col">Pai</th>
-<th scope="col">Mãe</th>
-<th scope="col">CPF</th>
-<th scope="col">Data de nascimento</th>
-<th scope="col">Email</th>
-<th scope="col">Cidade</th>
-<th scope="col">Ocupação</th>
 
-
-</tr>
-</thead>
-<tbody>
-{% for pessoa in pessoa %}
-<tr>
-<td>{{ pessoa.nome }}</td>
-<td>{{ pessoa.pai }}</td>
-<td>{{ pessoa.mae}}</td>
-<td>{{ pessoa.cpf }} </td>
-<td>{{ pessoa.data_nasc }}</td>
-<td>{{ pessoa.email }}</td>
-<td>{{ pessoa.cidade }}</td>
-<td>{{ pessoa.ocupacao }}</td>
-
-
-</tr>
-{% endfor %}
-</tbody>
-</table>
-</div>
+    <div class="container mt-5">
+        <h2 class="mb-4">Tabela de dados sobre a pessoa</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Pai</th>
+                    <th scope="col">Mãe</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Data de nascimento</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Ocupação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pessoa in pessoas %}
+                <tr>
+                    <td>{{ pessoa.nome }}</td>
+                    <td>{{ pessoa.pai }}</td>
+                    <td>{{ pessoa.mae }}</td>
+                    <td>{{ pessoa.cpf }}</td>
+                    <td>{{ pessoa.data_nasc }}</td>
+                    <td>{{ pessoa.email }}</td>
+                    <td>{{ pessoa.cidade }}</td>
+                    <td>{{ pessoa.ocupacao }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8">Nenhuma pessoa cadastrada.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <!-- Incluindo jQuery e Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popp
