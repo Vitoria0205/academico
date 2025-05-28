@@ -76,28 +76,37 @@ navigation">
             </ul>
         </div>
     </nav>
+
     <div class="container mt-5">
-        <h2 class="mb-4">Tabela de Turmas</h2>
-        <table class="table ">
+        <h2 class="mb-4">Tabela de dados sobre a pessoa</h2>
+        <table class="table">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>Período</th>
-                    <th>Curso</th>
-                    <th>Turno</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Pai</th>
+                    <th scope="col">Mãe</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Data de nascimento</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Ocupação</th>
                 </tr>
             </thead>
             <tbody>
-                {% for turma in turmas %}
+                {% for pessoa in pessoas %}
                 <tr>
-                    <td>{{ turma.nome }}</td>
-                    <td>{{ turma.periodo }}</td>
-                    <td>{{ turma.curso }}</td>
-                    <td>{{ turma.turno }}</td>
+                    <td>{{ pessoa.nome }}</td>
+                    <td>{{ pessoa.pai }}</td>
+                    <td>{{ pessoa.mae }}</td>
+                    <td>{{ pessoa.cpf }}</td>
+                    <td>{{ pessoa.data_nasc }}</td>
+                    <td>{{ pessoa.email }}</td>
+                    <td>{{ pessoa.cidade }}</td>
+                    <td>{{ pessoa.ocupacao }}</td>
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="2">Nenhuma turma cadastrada.</td>
+                    <td colspan="8">Nenhuma pessoa cadastrada.</td>
                 </tr>
                 {% endfor %}
             </tbody>

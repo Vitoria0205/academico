@@ -76,33 +76,40 @@ navigation">
             </ul>
         </div>
     </nav>
-    <div class="container mt-5">
-        <h2 class="mb-4">Tabela de Turmas</h2>
-        <table class="table ">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Período</th>
-                    <th>Curso</th>
-                    <th>Turno</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for turma in turmas %}
-                <tr>
-                    <td>{{ turma.nome }}</td>
-                    <td>{{ turma.periodo }}</td>
-                    <td>{{ turma.curso }}</td>
-                    <td>{{ turma.turno }}</td>
-                </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="2">Nenhuma turma cadastrada.</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+<div class="container mt-5">
+<h2 class="mb-4">Tabela de Matrículas</h2>
+<table class="table">
+<thead>
+<tr>
+<th scope="col">Instituição Ensino</th>
+<th scope="col">Curso</th>
+<th scope="col">Pessoa</th>
+<th scope="col">Data de início</th>
+<th scope="col">Previsão de término</th>
+
+
+
+
+
+
+
+
+</tr>
+</thead>
+<tbody>
+{% for matricula in matriculas %}
+<tr>
+<td>{{ matricula.instituicaoensino }}</td>
+<td>{{ matricula.curso }}</td>
+<td>{{ matricula.pessoa }}</td>
+<td>{{ matricula.data_inicio }}</td>
+<td>{{ matricula.data_previsao_termino}}</td>
+
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
     <!-- Incluindo jQuery e Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popp

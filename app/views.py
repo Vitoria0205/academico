@@ -4,7 +4,8 @@ from django.views import View
 from django.contrib import messages
 class IndexView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'index.html')
+        pessoas = Pessoa.objects.all()
+        return render(request, 'index.html', {'pessoas': pessoas})
     
 
 class OcupacoesView(View):
@@ -72,7 +73,7 @@ class AvaliacoesView(View):
 class FrequenciasView(View):
     def get(self, request, *args, **kwargs):
         frequencias = Frequencia.objects.all()
-        return render(request, 'frequencia.html', {'frquencias': frequencias})
+        return render(request, 'frequencia.html', {'frequencias': frequencias})
     
 class OcorrenciasView(View):
     def get(self, request, *args, **kwargs):

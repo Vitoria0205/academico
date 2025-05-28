@@ -1,0 +1,62 @@
+<!-- {% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+    <title>Detalhes e Edição do Livro</title>
+    <!-- Incluindo Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Incluindo estilos do crispy_forms -->
+    <!-- Estilos personalizados (se houver) -->
+    <!-- Adicione links para seus próprios estilos aqui, se
+necessário -->
+</head>
+<!-- <td>{{ pessoa.nome }}</td>
+<td>{{ pessoa.pai }}</td>
+<td>{{ pessoa.mae}}</td>
+<td>{{ pessoa.cpf }} </td>
+<td>{{ pessoa.data_nasc }}</td>
+<td>{{ pessoa.email }}</td>
+<td>{{ pessoa.cidade }}</td>
+<td>{{ pessoa.ocupacao }}</td> -->
+
+<body>
+    <div class="container mt-5">
+        <a href="/" class="btn btn-warning">Voltar para a Home</a>
+        <h2>Detalhes da Pessoa: {{ pessoa.nome }}</h2>
+        <p>Nome: {{ pessoa.nome }}</p>
+        <p>Pai: {{ pessoa.pai }}</p>
+        <p>CPF: {{ pessoa.cpf }}</p>
+        <p>Data de nascimento: {{ pessoa.data_nasc }}</p>
+        <p>Email: {{ pessoa.email }}</p>
+        <p>Cidade: {% for cidade in pessoa.cidade.all %}{{cidade.nome }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+        <p>Ocupação: {% for ocupacao in pessoa.ocupacao.all %}{{ocupacao.nome }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+        <h3 class="mt-4">Editar Pessoa</h3>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <b>
+                <li{% if message.tags %} class="{{ message.tags
+}}" {% endif %} style="color: red;">{{ message }}</li>
+            </b>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-success btn-block
+btn-lg mt-2">Salvar Edições da Pessoa</button>
+        </form>
+        <br>
+    </div>
+    <!-- Incluindo jQuery e Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script >
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html> 

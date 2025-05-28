@@ -44,7 +44,7 @@
         </div>
 
         <h2 class="mb-4">Tabela de dados sobre a pessoa</h2>
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
@@ -55,7 +55,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Cidade</th>
                     <th scope="col">Ocupação</th>
-                    <th scope="col">Turma</th>
+                    <th scope="col">Excluir</th>
                 </tr>
             </thead>
             <tbody>
@@ -67,18 +67,34 @@
                     <td>{{ pessoa.cpf }}</td>
                     <td>{{ pessoa.data_nasc }}</td>
                     <td>{{ pessoa.email }}</td>
-                    <td>{{ pessoa.cidade }}</td>
-                    <td>{{ pessoa.ocupacao }}</td>
-                    <td>{{pessoa.turma}}</td>
+                    <td>
+                        {% for cidade in pessoa.cidade.all %}
+                            {{ cidade.nome }}{% if not forloop.last %}, {% endif %}
+                        {% empty %}
+                            -
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for ocupacao in pessoa.ocupacao.all %}
+                            {{ ocupacao.nome }}{% if not forloop.last %}, {% endif %}
+                        {% empty %}
+                            -
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <form action="{% url 'delete_pessoa' pessoa.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                        </form>
+                    </td>
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="8">Nenhuma pessoa cadastrada.</td>
+                    <td colspan="9" class="text-center">Nenhuma pessoa encontrada.</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

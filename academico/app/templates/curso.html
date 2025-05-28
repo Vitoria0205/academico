@@ -76,33 +76,37 @@ navigation">
             </ul>
         </div>
     </nav>
-    <div class="container mt-5">
-        <h2 class="mb-4">Tabela de Turmas</h2>
-        <table class="table ">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Período</th>
-                    <th>Curso</th>
-                    <th>Turno</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for turma in turmas %}
-                <tr>
-                    <td>{{ turma.nome }}</td>
-                    <td>{{ turma.periodo }}</td>
-                    <td>{{ turma.curso }}</td>
-                    <td>{{ turma.turno }}</td>
-                </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="2">Nenhuma turma cadastrada.</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+<div class="container mt-5">
+<h2 class="mb-4">Tabela de Cursos</h2>
+<table class="table">
+<thead>
+<tr>
+<th scope="col">Nome</th>
+<th scope="col">Carga Horária</th>
+<th scope="col">Meses de Duração</th>
+<th scope="col">Área</th>
+<th scope="col">Instituição de ensino</th>
+
+
+
+</tr>
+</thead>
+<tbody>
+    <tbody>
+        {% for curso in cursos %}
+        <tr>
+            <td>{{ curso.nome }}</td>
+            <td>{{ curso.carga_horaria_total }}</td>
+            <td>{{ curso.duracao_meses }}</td>
+            <td>{{ curso.area_saber}}</td>
+            <td>{{ curso.instituicao_ensino}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+>
+</table>
+</div>
     <!-- Incluindo jQuery e Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popp
